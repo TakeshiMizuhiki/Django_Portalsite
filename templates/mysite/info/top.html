@@ -1,0 +1,188 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+<head>
+    <meta charset="utf-8" />
+    <link rel="apple-touch-icon" sizes="76x76" href="{% static "assets/img/apple-icon.png" %}">
+    <link rel="icon" type="image/png" href="{% static "assets/img/favicon.png" %}">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>J&C Portal</title>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+    <!--     Fonts and icons     -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+    <!-- CSS Files -->
+    <link href="{% static "assets/css/bootstrap.min.css" %}" rel="stylesheet" />
+    <link href="{% static "assets/css/now-ui-dashboard.css" %}"?v=1.0.1 rel="stylesheet" />
+    <!-- CSS Just for demo purpose, don't include it in your project -->
+    <link href='{% static "assets/demo/demo.css" %}' rel="stylesheet" />
+</head>
+
+<body class="">
+    <div class="wrapper ">
+        <div class="sidebar" data-color="orange">
+            <!--
+        Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
+    -->
+            <div class="logo">
+                <a href="{% url "mysite:index" %}" class="simple-text logo-normal">
+                    J&C Portal
+                </a>
+            </div>
+            <div class="sidebar-wrapper">
+                <ul class="nav">
+                  <li class="active">
+                      <a href="{% url "mysite:info_top" %}">
+                          <i class="now-ui-icons design_app"></i>
+                          <p>Info</p>
+                      </a>
+                  </li>
+                  <li>
+                      <a href="{% url "mysite:todo_top" %}">
+                          <i class="now-ui-icons education_atom"></i>
+                          <p>Todo</p>
+                      </a>
+                  </li>
+                  <li>
+                      <a href="{% url "mysite:mycalendar" %}">
+                          <i class="now-ui-icons location_map-big"></i>
+                          <p>スケジュール</p>
+                      </a>
+                  </li>
+                  <li>
+                      <a href="{% url "mysite:file_category" %}">
+                          <i class="now-ui-icons ui-1_bell-53"></i>
+                          <p>ファイルアップロード</p>
+                      </a>
+                  </li>
+                  <li>
+                      <a href="{% url "mysite:mail_top" %}">
+                          <i class="now-ui-icons users_single-02"></i>
+                          <p>メール</p>
+                      </a>
+                  </li>
+                  <li >
+                      <a href="{% url "mysite:accounting_top" %}">
+                          <i class="now-ui-icons design_bullet-list-67"></i>
+                          <p>経費精算</p>
+                      </a>
+                  </li>
+                  <li>
+                      <a href="{% url "logout" %}">
+                          <i class="now-ui-icons text_caps-small"></i>
+                          <p>ログアウト</p>
+                      </a>
+                  </li>
+              </ul>
+            </div>
+        </div>
+        </div>
+        <div class="main-panel">
+            <!-- Navbar -->
+
+            <!-- End Navbar -->
+            <div class="panel-header panel-header-sm">
+            </div>
+            <div class="content">
+              <div class="col-md-12">
+                  <div class="card">
+                      <div class="card-body">
+                          <div class="places-buttons">
+                              <div class="row">
+                                  <div class="col-md-6 ml-auto mr-auto text-center">
+                                      <h1 class="card-title">
+                                          Info
+
+                                      </h1>
+                                  </div>
+                              </div>
+                              <div class="row">
+                                  <div class="col-lg-8 ml-auto mr-auto">
+                                      <div class="row">
+                                          <div class="col-md-4">
+                                              <a  class="btn btn-primary btn-block" href='{% url "mysite:info_new" %}'>新規登録</a>
+                                          </div>
+
+                                      </div>
+                                  </div>
+                              </div>
+
+                          </div>
+                      </div>
+                  </div>
+              </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">記事一覧</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead class=" text-primary">
+                                            <th>
+                                              　投稿日
+                                            </th>
+                                            <th>
+                                                タイトル
+                                            </th>
+                                            <th>
+                                                関連URL
+                                            </th>
+                                            <th class="text-right">
+                                                投稿者
+                                            </th>
+                                        </thead>
+                                        {% for info in infolist %}
+
+
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                  {{info.pub_date}}
+                                                </td>
+                                                <td>
+                                                  <a href='{%  url "mysite:info_detail" info.id %}'>{{info.title}}</a>
+                                                </td>
+                                                <td>
+                                                  {{info.sub_content}}
+                                                </td>
+                                                <td class="text-right">
+                                                  {{info.owner}}
+                                                </td>
+                                            </tr>
+
+                                        </tbody>
+                                          {% endfor %}
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+  </body>
+  <!--   Core JS Files   -->
+  <script src="{% static "assets/js/core/jquery.min.js" %}"></script>
+  <script src="{% static "assets/js/core/bootstrap.min.js" %}"></script>
+  <script src="{% static "assets/js/core/popper.min.js" %}"></script>
+  <script src="{% static "assets/js/plugins/perfect-scrollbar.jquery.min.js" %}"></script>
+  <!--  Google Maps Plugin    -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+  <!-- Chart JS -->
+  <script src="{% static "assets/js/plugins/chartjs.min.js" %}"></script>
+  <!--  Notifications Plugin    -->
+  <script src="{% static "assets/js/plugins/bootstrap-notify.js" %}"></script>
+  <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
+  <script src="{% static "assets/js/now-ui-dashboard.js?v=1.0.1" %}"></script>
+  <!-- Now Ui Dashboard DEMO methods, don't include it in your project! -->
+  <script src="{% static "assets/demo/demo.js" %}"></script>
+
+  </html>

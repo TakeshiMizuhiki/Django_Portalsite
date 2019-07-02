@@ -1,0 +1,91 @@
+.datepicker-days th.dow:first-child,
+.datepicker-days td:first-child {
+    color: #f00;
+}
+.datepicker-days th.dow:last-child,
+.datepicker-days td:last-child {
+    color: #00f;
+}
+
+.info{
+  float: left;
+}
+
+.todo{
+  float: right;
+}
+
+.schedule{
+
+}
+.todotitle{
+  color:white;
+}
+.button-center{
+  text-align:center;
+}
+.sub-btn{
+  background-color:silver ;
+}
+
+
+.category_name{
+  color:black;
+  position: relative;
+  right:185px;
+  top:80px;
+
+}
+
+.filearea{
+  width:1px;
+  height:100px;
+}
+
+
+.fileblock .filename{
+  max-width: 180px;
+   overflow: hidden;
+   text-overflow: ellipsis;
+   white-space: nowrap;
+}
+
+.file_name{
+  color:black;
+  position: relative;
+  left:40px;
+}
+
+.filename{
+  color:black;
+  position: relative;
+
+}
+.box11{
+    padding: 0.5em 1em;
+    margin: 2em 0;
+    color: #5d627b;
+    background: white;
+    border-top: solid 5px #5d627b;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
+}
+.box11 h1 {
+    margin: 0;
+    padding: 0;
+}
+.sub-nav{
+  height:30px;
+  margin-left:170px;
+}
+
+.btn-sub{
+  width:150px;
+}
+
+.file-contents{
+  margin-bottom: 30px;
+}
+
+.schedule{
+  margin-left:300px;
+}
